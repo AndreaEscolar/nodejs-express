@@ -1,0 +1,59 @@
+<%- include("partials/layout-start", { title: "Contacto" , user }) %>
+
+    <h1>Contacto</h1>
+    <p>Rellena el formulario y te respondemos lo antes posible.</p>
+
+    <form class="form" method="POST" action="/contacto" novalidate>
+
+        <div class="row">
+            <div class="field">
+                <label>Nombre</label>
+                <input name="nombre" value="<%= values.nombre ?? '' %>" />
+                <% if (errors.nombre) { %>
+                    <div class="error">
+                        <%= errors.nombre %>
+                    </div>
+                    <% } %>
+            </div>
+
+            <div class="field">
+                <label>Apellidos</label>
+                <input name="apellidos" value="<%= values.apellidos ?? '' %>" />
+                <% if (errors.apellidos) { %>
+                    <div class="error">
+                        <%= errors.apellidos %>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Teléfono</label>
+            <input name="telefono" value="<%= values.telefono ?? '' %>" placeholder="9 dígitos" />
+            <% if (errors.telefono) { %>
+                <div class="error">
+                    <%= errors.telefono %>
+                </div>
+                <% } %>
+        </div>
+
+        <div class="field">
+            <div class="hint">
+                <label>Descripción</label>
+                <span>Máx. 250</span>
+            </div>
+
+            <textarea name="descripcion" maxlength="250"><%= values.descripcion ?? '' %></textarea>
+            <% if (errors.descripcion) { %>
+                <div class="error">
+                    <%= errors.descripcion %>
+                </div>
+                <% } %>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn--primary" type="submit">Enviar consulta</button>
+        </div>
+    </form>
+
+    <%- include("partials/layout-end") %>

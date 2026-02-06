@@ -1,0 +1,25 @@
+<%- include("partials/layout-start", { title: "Consulta enviada" , user }) %>
+
+    <h1>Consulta enviada</h1>
+    <p>Gracias, <strong>
+            <%= values.nombre %>
+                <%= values.apellidos %>
+        </strong>. Te responderemos pronto.</p>
+
+    <div class="form">
+        <div class="field">
+            <label>Teléfono</label>
+            <input value="<%= values.telefono %>" readonly />
+        </div>
+
+        <div class="field">
+            <label>Descripción</label>
+            <textarea readonly><%= values.descripcion %></textarea>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn--ghost" href="/contacto">Enviar otra</a>
+        </div>
+    </div>
+
+    <%- include("partials/layout-end") %>

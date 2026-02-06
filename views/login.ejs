@@ -1,0 +1,35 @@
+<%- include("partials/layout-start", { title: "Login" , user }) %>
+
+    <h1>Login</h1>
+    <p>Accede para enviar una consulta.</p>
+
+    <form class="form" method="POST" action="/login" novalidate>
+        <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="admin@demo.com" required />
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="123456" required />
+        </div>
+
+        <% if (error) { %>
+            <div class="error">
+                <%= error %>
+            </div>
+            <% } %>
+
+                <div class="actions">
+                    <button class="btn btn--primary" type="submit">Entrar</button>
+                </div>
+
+                <div class="hint">
+                    <span>Demo: admin@demo.com / 123456</span>
+                    <% if (user) { %>
+                        <a class="btn btn--ghost" href="/contacto">Ir a contacto</a>
+                        <% } %>
+                </div>
+    </form>
+
+    <%- include("partials/layout-end") %>
